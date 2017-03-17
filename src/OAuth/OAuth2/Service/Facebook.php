@@ -116,6 +116,7 @@ class Facebook extends AbstractService
     const SCOPE_FRIENDS_GAMES                 = 'friends_games_activity';
     //Page Permissions
     const SCOPE_PAGES                         = 'manage_pages';
+    const PUBLISH_PAGES                       = 'publish_pages';
 
     public function __construct(
         CredentialsInterface $credentials,
@@ -164,7 +165,7 @@ class Facebook extends AbstractService
 
         $token = new StdOAuth2Token();
         $token->setAccessToken($data['access_token']);
-        
+
         if (isset($data['expires'])) {
             $token->setLifeTime($data['expires']);
         }
